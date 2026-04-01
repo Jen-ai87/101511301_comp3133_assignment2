@@ -1,0 +1,150 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button routerLink="/employees">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <mat-icon class="toolbar-icon">person</mat-icon>
+  <span>Employee Details</span>
+</mat-toolbar>
+
+<div class="page-content">
+  <div class="loading-wrapper" *ngIf="loading">
+    <mat-spinner diameter="48"></mat-spinner>
+  </div>
+
+  <div *ngIf="!loading && employee" class="detail-layout">
+    <mat-card class="profile-card">
+      <mat-card-content>
+        <div class="profile-header">
+          <div class="avatar-large" *ngIf="!employee.employee_photo">
+            {{ employee.first_name[0] }}{{ employee.last_name[0] }}
+          </div>
+          <img
+            *ngIf="employee.employee_photo"
+            [src]="employee.employee_photo"
+            alt="Employee photo"
+            class="profile-photo"
+          />
+          <h2 class="emp-name">{{ employee.first_name }} {{ employee.last_name }}</h2>
+          <span class="emp-designation">{{ employee.designation }}</span>
+          <span class="emp-department">{{ employee.department }}</span>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <div class="quick-stats">
+          <div class="stat-item">
+            <mat-icon>attach_money</mat-icon>
+            <div>
+              <span class="stat-label">Salary</span>
+              <span class="stat-value salary">{{ employee.salary | currency:'USD':'symbol':'1.0-0' }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <mat-icon>wc</mat-icon>
+            <div>
+              <span class="stat-label">Gender</span>
+              <span class="stat-value">{{ employee.gender }}</span>
+            </div>
+          </div>
+          <div class="stat-item">
+            <mat-icon>calendar_today</mat-icon>
+            <div>
+              <span class="stat-label">Joined</span>
+              <span class="stat-value">{{ employee.date_of_joining | date:'mediumDate' }}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="action-row">
+          <button mat-raised-button color="primary" (click)="editEmployee()">
+            <mat-icon>edit</mat-icon> Edit Employee
+          </button>
+          <button mat-stroked-button routerLink="/employees">
+            <mat-icon>arrow_back</mat-icon> Back to List
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="info-card">
+      <mat-card-header>
+        <mat-card-title>
+          <mat-icon>info</mat-icon> Contact & Employment Info
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>badge</mat-icon> First Name
+            </span>
+            <span class="info-value">{{ employee.first_name }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>badge</mat-icon> Last Name
+            </span>
+            <span class="info-value">{{ employee.last_name }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>email</mat-icon> Email
+            </span>
+            <span class="info-value">{{ employee.email }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>wc</mat-icon> Gender
+            </span>
+            <span class="info-value">{{ employee.gender }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>work</mat-icon> Designation
+            </span>
+            <span class="info-value">{{ employee.designation }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>business</mat-icon> Department
+            </span>
+            <span class="info-value">{{ employee.department }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>attach_money</mat-icon> Salary
+            </span>
+            <span class="info-value salary-value">{{ employee.salary | currency:'USD':'symbol':'1.0-0' }}</span>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">
+              <mat-icon>calendar_today</mat-icon> Date of Joining
+            </span>
+            <span class="info-value">{{ employee.date_of_joining | date:'longDate' }}</span>
+          </div>
+
+          <div class="info-item" *ngIf="employee.created_at">
+            <span class="info-label">
+              <mat-icon>access_time</mat-icon> Record Created
+            </span>
+            <span class="info-value">{{ employee.created_at | date:'medium' }}</span>
+          </div>
+
+          <div class="info-item" *ngIf="employee.updated_at">
+            <span class="info-label">
+              <mat-icon>update</mat-icon> Last Updated
+            </span>
+            <span class="info-value">{{ employee.updated_at | date:'medium' }}</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

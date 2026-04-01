@@ -1,0 +1,204 @@
+.toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 12px;
+  background: linear-gradient(90deg, #1a237e, #3949ab) !important;
+}
+
+.toolbar-icon {
+  margin-right: 4px;
+}
+
+.toolbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user-greeting {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-right: 8px;
+}
+
+.add-btn {
+  background: rgba(255,255,255,0.15) !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+.add-btn:hover {
+  background: rgba(255,255,255,0.25) !important;
+}
+
+.page-content {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.search-card {
+  margin-bottom: 20px;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.search-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.search-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.table-card {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
+
+.table-header {
+  margin-bottom: 16px;
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a237e;
+  margin: 0;
+}
+
+.count-chip {
+  background: #1a237e;
+  color: white;
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.loading-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.employee-table {
+  width: 100%;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a237e, #3949ab);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.employee-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-name {
+  font-weight: 600;
+  color: #1a237e;
+}
+
+.email-sub {
+  font-size: 12px;
+  color: #888;
+}
+
+.designation-chip {
+  background: #e8eaf6;
+  color: #1a237e;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.salary {
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.table-row:hover {
+  background: #f5f5f5;
+}
+
+.no-data-row .no-data-cell {
+  text-align: center;
+  padding: 48px !important;
+  color: #999;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+mat-paginator {
+  border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+  .page-content {
+    padding: 16px;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+
+  .search-field {
+    width: 100%;
+  }
+
+  .user-greeting {
+    display: none;
+  }
+
+  .email-sub {
+    display: none;
+  }
+}
